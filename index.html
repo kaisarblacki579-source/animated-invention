@@ -5,106 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kisah Ajaib Bolen Ummi Binong! 💖🍌</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fff8e1; /* Kuning pisang lembut */
-            color: #5d4037; /* Cokelat hangat */
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            width: 100%;
-            max-width: 450px; /* Ukuran tampilan HP */
-            background-color: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            position: relative;
-        }
-        .ad-image {
-            width: 100%;
-            display: block;
-        }
-        /* Floating Button Container */
-        .cta-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 1000;
-        }
-        /* Common style for floating buttons */
-        .floating-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px; /* Lebar tombol melingkar */
-            height: 70px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-        /* Keyframe for floating animation */
-        @keyframes floatingPulse {
-            0% { transform: translateY(0); box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-            50% { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
-            100% { transform: translateY(0); box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        }
-        /* WA Button */
-        .wa-btn {
-            background-color: #25D366; /* Warna WA */
-            color: #fff;
-            animation: floatingPulse 3s ease-in-out infinite; /* Animasi mengambang */
-        }
-        .wa-btn i {
-            font-size: 30px;
-        }
-        /* Maps Button */
-        .maps-btn {
-            background-color: #fff;
-            border: 2px solid #5d4037;
-            animation: floatingPulse 3s ease-in-out infinite 0.5s; /* Delay sedikit agar tidak seragam */
-        }
-        .maps-btn i {
-            font-size: 30px;
-            color: #4285F4; /* Warna Google */
-        }
-        /* Icon styles (menggunakan Unicode untuk kemudahan) */
-        .icon-wa::before { content: "\f232"; font-family: "Font Awesome 5 Brands"; } /* WA Icon */
-        .icon-maps::before { content: "\f3c5"; font-family: "Font Awesome 5 Free"; font-weight: 900; } /* Maps Icon */
+        /* Gaya CSS yang kaya dan mandiri */
+        body { font-family: 'Comic Sans MS', cursive, sans-serif; background: linear-gradient(to bottom, #fff8e1, #ffe082); color: #5d4037; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .container { max-width: 500px; width: 90%; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 30px; margin-bottom: 30px; overflow: hidden; padding-bottom: 100px; /* Space for buttons */ }
+        header { background-color: #f57c00; color: white; padding: 20px; text-align: center; border-radius: 20px 20px 0 0; }
+        header h1 { margin: 0; font-size: 2.2em; text-transform: uppercase; letter-spacing: 1px; }
+        .story-section { padding: 30px; }
+        .story-section h2 { color: #f57c00; text-align: center; font-size: 1.8em; margin-bottom: 20px; text-decoration: underline; }
+        .story-text { line-height: 1.8; font-size: 1.2em; text-align: justify; }
+        .story-text p { margin-bottom: 15px; }
+        .highlight { color: #f57c00; font-weight: bold; }
         
-        /* FontAwesome for Icons (Optional: include if you can, or use unicode/images) */
-        @font-face {
-            font-family: 'Font Awesome 5 Brands';
-            src: url('https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff2') format('woff2');
+        /* Floating CTA Container */
+        .cta-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
+        /* Common Floating Button Style */
+        .floating-btn { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; animation: floatAnim 3s ease-in-out infinite; }
+        
+        /* Animasi mengambang pelan */
+        @keyframes floatAnim {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
         }
-        @font-face {
-            font-family: 'Font Awesome 5 Free';
-            src: url('https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff2') format('woff2');
-            font-weight: 900;
+        
+        /* Pulse pelan for WA */
+        @keyframes pulseAnimWA {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
+        
+        /* Pulse pelan for Maps */
+        @keyframes pulseAnimMaps {
+            0% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(66, 133, 244, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0); }
+        }
+        
+        /* WA Button */
+        .wa-btn { background-color: #25D366; animation: floatAnim 3s ease-in-out infinite, pulseAnimWA 3s ease-in-out infinite; }
+        .wa-btn img { width: 40px; } /* Ikon SVG internal */
+        
+        /* Maps Button */
+        .maps-btn { background-color: white; border: 2px solid #5d4037; animation: floatAnim 3s ease-in-out infinite, pulseAnimMaps 3s ease-in-out infinite; }
+        .maps-btn img { width: 35px; } /* Ikon SVG internal */
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="image_3.png" alt="Iklan Bolen Ummi Binong Lengkap" class="ad-image">
-        
-        <div class="cta-container">
-            <a href="https://wa.me/6289506281510" target="_blank" class="floating-btn wa-btn">
-                <i class="icon-wa"></i>
-            </a>
-            <a href="https://share.google/Z3qjBFrbPpTbjQmzg" target="_blank" class="floating-btn maps-btn">
-                <i class="icon-maps"></i>
-            </a>
+        <header>
+            <h1>KISAH AJAIB DI BALIK BOLEN UMMI BINONG! 💖🍌</h1>
+        </header>
+        <div class="story-section">
+            <h2>Kisah & Sejarah Penuh Warna! ✨</h2>
+            <div class="story-text">
+                <p>Tahukah kamu? <span class="highlight">Bolen Ummi Binong</span> bukan cuma jajanan biasa! Ini adalah resep legendaris... </p>
+                <p>Semuanya bermula dari dapur kecil Nenek Ummi 👵👩‍🍳 di desa Binong. Nenek yang penyayang selalu ingin menyajikan yang terbaik untuk cucunya. 🍪❤️ </p>
+                <p>Putri Nenek, Umi, meneruskan warisan ini. "Hanya pisang Raja terbaik 🍌, cokelat premium 🍫, dan mentega emas lumer 🤤 yang boleh masuk!" kata Umi. Kualitas tanpa kompromi! ⭐✨</p>
+                <p>Umi mulai membuat lebih banyak dengan penuh cinta ❤️ dan dedikasi. Rasanya begitu istimewa, tetangga pada ketagihan! 😲✨ Sekarang, rasa otentik Binong ada di tanganmu! 🎉 Coba dan buktikan kelezatannya!</p>
+                <p>Cita rasa legendaris Binong tersebar! 🛒 Dapatkan keaslian rasa dan cinta Umi di setiap gigitan! 👇😋 Cepat pesan sekarang!</p>
+            </div>
         </div>
     </div>
-</body>
-</html>
-
+    
+    <div class="cta-container">
+        <a href="https://wa.me/6289506281510" target="_blank" class="floating-btn wa-btn" title="Hubungi WA Ummi Binong">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQ0OCA1MTIiPjxwYXRoIGZpbGw9IiNGRkYiIGQ9IkM0NzYuOSAxNzMuNyA0ND
+                
